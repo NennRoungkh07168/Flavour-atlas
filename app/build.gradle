@@ -6,7 +6,7 @@ android {
         applicationId "com.flavouratlas.app"
         minSdk 26
         targetSdk 34
-        versionCode 1
+        versionCode 9
         versionName "8.1"
     }
     signingConfigs {
