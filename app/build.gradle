@@ -1,0 +1,27 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.flavouratlas.app'
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.flavouratlas.app"
+        minSdk 26
+        targetSdk 34
+        versionCode 7
+        versionName "1.6"
+    }
+    signingConfigs {
+        // Fixed key so every new build installs as an UPDATE and keeps your saved notes and photos.
+        fixed {
+            storeFile rootProject.file('keystore/flavour-atlas.jks')
+            storePassword 'flavouratlas'
+            keyAlias 'flavouratlas'
+            keyPassword 'flavouratlas'
+        }
+    }
+    buildTypes {
+        debug { signingConfig signingConfigs.fixed }
+        release { minifyEnabled false; signingConfig signingConfigs.fixed }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+dependencies { implementation 'androidx.webkit:webkit:1.11.0' }
